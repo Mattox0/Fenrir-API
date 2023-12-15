@@ -6,11 +6,5 @@ export class Server {
     id: string;
 
     @Column({ type: "integer", unique: true, nullable: false })
-    guild_id: string;
-
-    @Column({ type: "integer", unique: true, nullable: true })
-    ticket_id: string;
-
-    @Column({ type: "integer", unique: true, nullable: true })
-    suggest_id: string;
+    guild_id: number;
 }
