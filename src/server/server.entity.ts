@@ -5,12 +5,9 @@ export class Server {
     @PrimaryGeneratedColumn("uuid")
     id: string;
 
-    @Column({ type: "integer", unique: true, nullable: false })
+    @Column({ type: "varchar", unique: true, nullable: false })
     guild_id: string;
 
-    @Column({ type: "integer", unique: true, nullable: true })
-    ticket_id: string;
-
-    @Column({ type: "integer", unique: true, nullable: true })
-    suggest_id: string;
+    @Column({ type: "varchar", nullable: true })
+    name: string;
 }

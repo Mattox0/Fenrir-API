@@ -5,13 +5,13 @@ export class ServerBirthday {
     @PrimaryGeneratedColumn("uuid")
     id: string;
 
-    @Column({ type: "integer", unique: true, nullable: false })
+    @Column({ type: "varchar", unique: true, nullable: false })
     guild_id: string;
 
-    @Column({ type: "integer", unique: true, nullable: false })
+    @Column({ type: "varchar", unique: true, nullable: false })
     channel_id: string;
 
-    @Column({ type: "integer", unique: true, nullable: true })
+    @Column({ type: "varchar", unique: true, nullable: true })
     role_id: string;
 
     @Column({ type: "text", unique: true, nullable: true })
