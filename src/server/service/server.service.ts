@@ -25,9 +25,18 @@ export class ServerService {
       .into(Server)
       .values(server)
       .orUpdate(
-        ["name"],
+        ["name", "deleted"],
         ["guild_id"]
       )
       .execute();
+  }
+
+  async deleteServer(id: string): Promise<void> {
+    await this.serverRepository
+      .createQueryBuilder()
+      .update(Server)
+      .set({ deleted: true })
+      .where("guild_id = :id", { id: id })
+      .execute()
   }
 }

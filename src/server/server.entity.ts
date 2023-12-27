@@ -10,4 +10,7 @@ export class Server {
 
     @Column({ type: "varchar", nullable: true })
     name: string;
+
+    @Column({ type: "boolean", nullable: false, default: false })
+    deleted: boolean;
 }

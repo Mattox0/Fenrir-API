@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Post, UsePipes, ValidationPipe} from '@nestjs/common';
+import {Body, Controller, Delete, Get, Param, Post, UsePipes, ValidationPipe} from '@nestjs/common';
 import {ServerService} from "../service/server.service";
 import {Server} from "../server.entity";
 import {CreatedServerDto} from "../dto/server.dto";
@@ -12,7 +12,6 @@ export class ServerController {
     @UsePipes(ValidationPipe)
     @Post()
     async createServer(@Body() body: CreatedServerDto): Promise<InsertResult> {
-        console.log("create server")
         return await this.serverService.create(body);
     }
 
@@ -20,5 +19,10 @@ export class ServerController {
     @Get()
     async getServer(@Body() body: CreatedServerDto): Promise<Server> {
         return await this.serverService.getServer(body.guild_id);
+    }
+
+    @Delete("/:id")
+    async deleteServer(@Param("id") id: string): Promise<void> {
+        return await this.serverService.deleteServer(id);
     }
 }
