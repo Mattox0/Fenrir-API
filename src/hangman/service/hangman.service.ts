@@ -19,6 +19,10 @@ export class HangmanService {
       .insert()
       .into(Hangman)
       .values(hangman)
+      .orUpdate(
+        ["difficulty"],
+        ["word"]
+      )
       .execute();
   }
 

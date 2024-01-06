@@ -5,7 +5,7 @@ export class Hangman {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column()
+  @Column({unique: true})
   word: string;
 
   @Column()
