@@ -9,6 +9,8 @@ import {ServerPrivateRoom} from "./server-privateroom/server_privateroom.entity"
 import {ServerStats} from "./server-stats/server_stats.entity";
 import {ServerTicket} from "./server-ticket/server_ticket.entity";
 import {ServerSuggest} from "./server-suggest/server_suggest.entity";
+import {Hangman} from "./hangman/hangman.entity";
+import {HangmanModule} from "./hangman/hangman.module";
 
 @Module({
   imports: [
@@ -26,13 +28,14 @@ import {ServerSuggest} from "./server-suggest/server_suggest.entity";
         password: configService.get("POSTGRES_PASSWORD"),
         database: configService.get("POSTGRES_DATABASE"),
         entities: [
-            Server,
+          Server,
           ServerJail,
           ServerBirthday,
           ServerPrivateRoom,
           ServerStats,
           ServerTicket,
-          ServerSuggest
+          ServerSuggest,
+          Hangman
         ],
         synchronize: true,
         extra: {
@@ -41,7 +44,8 @@ import {ServerSuggest} from "./server-suggest/server_suggest.entity";
       }),
       inject: [ConfigService],
     } as TypeOrmModuleAsyncOptions),
-    ServerModule
+    ServerModule,
+    HangmanModule
   ],
   controllers: [],
   providers: [],
