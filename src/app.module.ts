@@ -11,6 +11,8 @@ import {ServerTicket} from "./server-ticket/server_ticket.entity";
 import {ServerSuggest} from "./server-suggest/server_suggest.entity";
 import {Hangman} from "./hangman/hangman.entity";
 import {HangmanModule} from "./hangman/hangman.module";
+import {FastType} from "./fasttype/fasttype.entity";
+import {FastTypeModule} from "./fasttype/fasttype.module";
 
 @Module({
   imports: [
@@ -35,7 +37,8 @@ import {HangmanModule} from "./hangman/hangman.module";
           ServerStats,
           ServerTicket,
           ServerSuggest,
-          Hangman
+          Hangman,
+          FastType
         ],
         synchronize: true,
         extra: {
@@ -45,7 +48,8 @@ import {HangmanModule} from "./hangman/hangman.module";
       inject: [ConfigService],
     } as TypeOrmModuleAsyncOptions),
     ServerModule,
-    HangmanModule
+    HangmanModule,
+    FastTypeModule
   ],
   controllers: [],
   providers: [],

@@ -23,5 +23,4 @@ export class HangmanController {
     async getRandomHangman(@Param('difficulty') difficulty: Difficulty) {
         return await this.hangmanService.getRandom(difficulty);
     }
-
 }
